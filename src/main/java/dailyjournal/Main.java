@@ -1,16 +1,14 @@
 package dailyjournal;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.input.KeyCombination;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
-import javafx.scene.image.Image;
-import javafx.scene.text.Text;
-import java.awt.*;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 
 public class Main extends Application {
@@ -23,7 +21,6 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         Group root = new Group();
         Scene scene = new Scene(root, 600, 600, Color.OLIVE);
-        Stage stage = new Stage();
 
         Text text = new Text();
         text.setText("Hello World");
@@ -42,8 +39,18 @@ public class Main extends Application {
         line.setOpacity(0.5);
         line.setRotate(45);
 
+        Rectangle rectangle = new Rectangle();
+        rectangle.setFill(Color.BLUE);
+        rectangle.setX(100);
+        rectangle.setY(100);
+        rectangle.setWidth(100);
+        rectangle.setHeight(100);
+        rectangle.setStroke(Color.BLACK);
+//        rectangle.setOpacity(0.5);
+
         root.getChildren().add(text);
         root.getChildren().add(line);
+        root.getChildren().add(rectangle);
         stage.setScene(scene);
         stage.show();
     }

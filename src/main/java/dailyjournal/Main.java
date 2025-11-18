@@ -8,8 +8,10 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
-
+import javafx.scene.text.Text;
 import java.awt.*;
+import javafx.scene.shape.Line;
+
 
 public class Main extends Application {
 
@@ -18,21 +20,30 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws Exception{
-
+    public void start(Stage stage) throws Exception {
         Group root = new Group();
-        Scene scene = new Scene(root, Color.BLACK);
+        Scene scene = new Scene(root, 600, 600, Color.OLIVE);
+        Stage stage = new Stage();
 
-        Image icon = new Image("file:C:/Users/Radu/IdeaProjects/DailyJournal/src/icon.png");
-        stage.getIcons().add(icon);
-        stage.setTitle("DailyJournal");
-        stage.setWidth(700);
-        stage.setHeight(700);
-        stage.setResizable(false);
-        stage.setFullScreen(true);
-        stage.setFullScreenExitHint("Cioaca (c)");
-        stage.setFullScreenExitKeyCombination(KeyCombination.valueOf("c"));
+        Text text = new Text();
+        text.setText("Hello World");
+        text.setX(50);
+        text.setY(50);
+        text.setFont(Font.font("Verdana", 50));
+        text.setFill(Color.WHITE);
 
+        Line line = new Line();
+        line.setStartX(200);
+        line.setStartY(200);
+        line.setEndX(500);
+        line.setEndY(500);
+        line.setStrokeWidth(5);
+        line.setStroke(Color.BLACK);
+        line.setOpacity(0.5);
+        line.setRotate(45);
+
+        root.getChildren().add(text);
+        root.getChildren().add(line);
         stage.setScene(scene);
         stage.show();
     }

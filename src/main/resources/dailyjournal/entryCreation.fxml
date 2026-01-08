@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="465.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dailyjournal.EntryCreationController">
+   <children>
+      <HBox prefHeight="29.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#onSaveNewEntry" prefHeight="25.0" prefWidth="302.0" text="Save" />
+            <Button fx:id="exitBtn" mnemonicParsing="false" onAction="#onExitEntryCreation" prefHeight="25.0" prefWidth="298.0" text="Exit" />
+         </children>
+      </HBox>
+      <Label layoutX="36.0" layoutY="79.0" text="Title">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="titleField" layoutX="36.0" layoutY="106.0" prefHeight="25.0" prefWidth="302.0" promptText="Summary of how the day went..." />
+      <Label layoutX="36.0" layoutY="29.0" text="Date">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="entryDatePicker" editable="true" layoutX="36.0" layoutY="56.0" />
+      <Spinner fx:id="hourSpinner" editable="true" layoutX="218.0" layoutY="56.0" prefHeight="25.0" prefWidth="61.0" />
+      <Spinner fx:id="minuteSpinner" editable="true" layoutX="287.0" layoutY="56.0" prefHeight="25.0" prefWidth="61.0" />
+      <Button fx:id="nowBtn" layoutX="359.0" layoutY="56.0" mnemonicParsing="false" text="Now" />
+      <TextArea fx:id="notesField" layoutX="38.0" layoutY="158.0" prefHeight="198.0" prefWidth="527.0" promptText="Write about your day..." wrapText="true" />
+      <Label layoutX="38.0" layoutY="131.0" text="Notes">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="38.0" layoutY="356.0" text="Routines">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <FlowPane fx:id="routinesFlow" hgap="10.0" layoutX="38.0" layoutY="383.0" prefHeight="91.0" prefWidth="527.0" vgap="10.0" />
+   </children>
+</AnchorPane>

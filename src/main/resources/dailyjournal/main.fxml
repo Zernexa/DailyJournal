@@ -12,7 +12,7 @@
          <children>
             <TextField prefHeight="24.0" prefWidth="163.0" promptText="Search..." />
             <Button fx:id="addNewEntry" mnemonicParsing="false" onAction="#onNewEntry" prefHeight="26.0" prefWidth="273.0" text="Add New Entry" />
-            <Button fx:id="routineEdit" mnemonicParsing="false" prefHeight="27.0" prefWidth="162.0" text="Routine Edit" />
+            <Button fx:id="routineEdit" mnemonicParsing="false" onAction="#onRoutineEdit" prefHeight="27.0" prefWidth="162.0" text="Routine Edit" />
          </children>
       </HBox>
       <ListView layoutX="6.0" layoutY="27.0" prefHeight="366.0" prefWidth="588.0" />

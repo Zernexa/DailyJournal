@@ -14,6 +14,9 @@ import javafx.scene.control.SpinnerValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
+import javafx.scene.control.CheckBox;
+import javafx.scene.layout.FlowPane;
 
 public class EntryCreationController {
 
@@ -21,6 +24,7 @@ public class EntryCreationController {
     @FXML private Spinner<Integer> hourSpinner;
     @FXML private Spinner<Integer> minuteSpinner;
     @FXML private Button nowBtn;
+    @FXML private FlowPane routinesFlow;
 
     @FXML
     private void initialize() {
@@ -30,6 +34,16 @@ public class EntryCreationController {
         nowBtn.setOnAction(e -> setNow());
 
         setNow(); // Pentru autocomplete cand deschizi pagina
+        loadRoutines();
+    }
+
+    private void loadRoutines() {
+        List<String> routines = RoutineStorage.loadRoutines();
+        routinesFlow.getChildren().clear();
+        for (String routine : routines) {
+            CheckBox cb = new CheckBox(routine);
+            routinesFlow.getChildren().add(cb);
+        }
     }
 
     private void setNow() {

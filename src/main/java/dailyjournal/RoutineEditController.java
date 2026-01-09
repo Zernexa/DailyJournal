@@ -28,9 +28,9 @@ public class RoutineEditController {
         routineList = FXCollections.observableArrayList(RoutineStorage.loadRoutines());
         routineListView.setItems(routineList);
         
-        // Custom Cell Factory to handle editing and context menu
         routineListView.setCellFactory(lv -> {
             TextFieldListCell<String> cell = new TextFieldListCell<>();
+            
             cell.setConverter(new StringConverter<String>() {
                 @Override public String toString(String object) { return object; }
                 @Override public String fromString(String string) { return string; }
@@ -61,7 +61,12 @@ public class RoutineEditController {
 
         routineListView.setOnEditCommit(event -> {
             int index = event.getIndex();
-            routineList.set(index, event.getNewValue());
+            String newValue = event.getNewValue().trim();
+            if (newValue.isEmpty()) {
+                routineList.remove(index);
+            } else {
+                routineList.set(index, newValue);
+            }
             RoutineStorage.saveRoutines(new ArrayList<>(routineList));
         });
     }

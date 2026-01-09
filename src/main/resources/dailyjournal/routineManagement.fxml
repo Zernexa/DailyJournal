@@ -2,19 +2,33 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import java.net.URL?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dailyjournal.RoutineEditController">
-   <children>
-      <HBox prefHeight="27.0" prefWidth="600.0">
+<ScrollPane fitToHeight="true" fitToWidth="true" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dailyjournal.RoutineEditController">
+   <content>
+      <AnchorPane minHeight="400.0" prefHeight="720.0" prefWidth="1280.0">
          <children>
-            <Button fx:id="backBtn" mnemonicParsing="false" onAction="#onBack" prefHeight="26.0" prefWidth="100.0" text="Back" />
-            <TextField fx:id="newRoutineField" prefHeight="26.0" prefWidth="400.0" promptText="New routine name..." />
-            <Button fx:id="addBtn" mnemonicParsing="false" onAction="#onAddRoutine" prefHeight="26.0" prefWidth="100.0" text="Add" />
+            <VBox spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <children>
+                  <HBox spacing="10.0">
+                     <children>
+                        <Button fx:id="backBtn" mnemonicParsing="false" onAction="#onBack" prefHeight="26.0" prefWidth="100.0" text="Back" />
+                        <TextField fx:id="newRoutineField" onAction="#onAddRoutine" prefHeight="26.0" promptText="New routine name..." HBox.hgrow="ALWAYS" />
+                        <Button fx:id="addBtn" mnemonicParsing="false" onAction="#onAddRoutine" prefHeight="26.0" prefWidth="100.0" text="Add" />
+                     </children>
+                  </HBox>
+                  <ListView fx:id="routineListView" editable="true" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
          </children>
-      </HBox>
-      <ListView fx:id="routineListView" editable="true" layoutX="10.0" layoutY="35.0" prefHeight="355.0" prefWidth="580.0" />
-   </children>
-</AnchorPane>
+      </AnchorPane>
+   </content>
+   <stylesheets>
+      <URL value="@style.css" />
+   </stylesheets>
+</ScrollPane>

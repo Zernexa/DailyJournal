@@ -2,19 +2,33 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import java.net.URL?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dailyjournal.MainController">
-   <children>
-      <HBox prefHeight="27.0" prefWidth="600.0">
+<ScrollPane fitToHeight="true" fitToWidth="true" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dailyjournal.MainController">
+   <content>
+      <AnchorPane minHeight="400.0" prefHeight="720.0" prefWidth="1280.0">
          <children>
-            <TextField prefHeight="24.0" prefWidth="163.0" promptText="Search..." />
-            <Button fx:id="addNewEntry" mnemonicParsing="false" onAction="#onNewEntry" prefHeight="26.0" prefWidth="273.0" text="Add New Entry" />
-            <Button fx:id="routineEdit" mnemonicParsing="false" onAction="#onRoutineEdit" prefHeight="27.0" prefWidth="162.0" text="Routine Edit" />
+            <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <HBox prefHeight="27.0">
+                     <children>
+                        <TextField fx:id="searchField" prefHeight="25.0" prefWidth="190.0" promptText="Search..." HBox.hgrow="ALWAYS" />
+                        <Button fx:id="addNewEntry" mnemonicParsing="false" onAction="#onNewEntry" prefHeight="25.0" prefWidth="234.0" text="Add New Entry" />
+                        <Button fx:id="routineEdit" mnemonicParsing="false" onAction="#onRoutineEdit" prefHeight="25.0" prefWidth="190.0" text="Routine Edit" />
+                     </children>
+                  </HBox>
+                  <ListView fx:id="entriesListView" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
          </children>
-      </HBox>
-      <ListView layoutX="6.0" layoutY="27.0" prefHeight="366.0" prefWidth="588.0" />
-   </children>
-</AnchorPane>
+      </AnchorPane>
+   </content>
+   <stylesheets>
+      <URL value="@style.css" />
+   </stylesheets>
+</ScrollPane>

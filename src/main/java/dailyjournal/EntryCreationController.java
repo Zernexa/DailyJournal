@@ -18,6 +18,11 @@ import java.util.List;
 import javafx.scene.control.CheckBox;
 import javafx.scene.layout.FlowPane;
 
+import java.util.UUID;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import java.util.stream.Collectors;
+
 public class EntryCreationController {
 
     @FXML private DatePicker entryDatePicker;
@@ -25,16 +30,44 @@ public class EntryCreationController {
     @FXML private Spinner<Integer> minuteSpinner;
     @FXML private Button nowBtn;
     @FXML private FlowPane routinesFlow;
+    @FXML private TextField titleField;
+    @FXML private TextArea notesField;
+
+    private JournalEntry currentEntry;
 
     @FXML
     private void initialize() {
-        hourSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23, 0)); // Setam valoarea spinnerului de ora sa fie intre 0 si 23
-        minuteSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 59, 0)); // Setam valoarea spinnerului de minute sa fie intre 0 si 59
+        hourSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23, 0));
+        minuteSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 59, 0));
 
         nowBtn.setOnAction(e -> setNow());
+    }
 
-        setNow(); // Pentru autocomplete cand deschizi pagina
-        loadRoutines();
+    public void setEntry(JournalEntry entry) {
+        this.currentEntry = entry;
+        if (entry != null) {
+            LocalDateTime dateTime;
+            try {
+                dateTime = LocalDateTime.parse(entry.getDate());
+            } catch (Exception e) {
+                dateTime = LocalDateTime.now();
+            }
+            entryDatePicker.setValue(dateTime.toLocalDate());
+            hourSpinner.getValueFactory().setValue(dateTime.getHour());
+            minuteSpinner.getValueFactory().setValue(dateTime.getMinute());
+            titleField.setText(entry.getTitle());
+            notesField.setText(entry.getNotes());
+            
+            routinesFlow.getChildren().clear();
+            for (RoutineStatus status : entry.getRoutines()) {
+                CheckBox cb = new CheckBox(status.getName());
+                cb.setSelected(status.isCompleted());
+                routinesFlow.getChildren().add(cb);
+            }
+        } else {
+            setNow();
+            loadRoutines();
+        }
     }
 
     private void loadRoutines() {
@@ -63,6 +96,30 @@ public class EntryCreationController {
 
     @FXML
     private void onSaveNewEntry(ActionEvent event) throws IOException {
-        System.out.println("Am salvat :)");
+        String title = titleField.getText();
+        String notes = notesField.getText();
+        LocalDateTime dateTime = LocalDateTime.of(entryDatePicker.getValue(), 
+                                                  java.time.LocalTime.of(hourSpinner.getValue(), minuteSpinner.getValue()));
+        
+        List<RoutineStatus> routines = routinesFlow.getChildren().stream()
+                .filter(node -> node instanceof CheckBox)
+                .map(node -> {
+                    CheckBox cb = (CheckBox) node;
+                    return new RoutineStatus(cb.getText(), cb.isSelected());
+                })
+                .collect(Collectors.toList());
+
+        if (currentEntry == null) {
+            currentEntry = new JournalEntry(UUID.randomUUID().toString(), title, dateTime.toString(), notes, routines);
+        } else {
+            currentEntry.setTitle(title);
+            currentEntry.setDate(dateTime.toString());
+            currentEntry.setNotes(notes);
+            currentEntry.setRoutines(routines);
+        }
+
+        JournalStorage.saveOrUpdateEntry(currentEntry);
+        
+        onExitEntryCreation(event);
     }
 }

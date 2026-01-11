@@ -20,7 +20,10 @@
          <children>
             <VBox spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <HBox prefHeight="29.0">
+                  <HBox spacing="10.0" prefHeight="29.0">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
                      <children>
                         <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#onSaveNewEntry" prefHeight="25.0" text="Save" HBox.hgrow="ALWAYS" maxWidth="Infinity" />
                         <Button fx:id="exitBtn" mnemonicParsing="false" onAction="#onExitEntryCreation" prefHeight="25.0" text="Exit" HBox.hgrow="ALWAYS" maxWidth="Infinity" />

@@ -1,1 +1,130 @@
-[{"id":"517dbc43-2efe-4933-bb02-0bdb2dd46e22","title":"Test","date":"2026-01-09T15:18","notes":"Cioaca","routines":[{"name":"GYM","completed":true},{"name":"Bible","completed":false},{"name":"Book","completed":false},{"name":"Coding","completed":true},{"name":"Skincare","completed":false}]},{"id":"d8d5a9b3-705a-41fe-b187-b60c2c74c6f0","title":"Test 2","date":"2026-01-09T15:32","notes":"Cioaca 10000","routines":[{"name":"GYM","completed":true},{"name":"Bible","completed":true},{"name":"Book","completed":false},{"name":"Coding","completed":false},{"name":"Skincare","completed":false},{"name":"Test","completed":true}]}]
+[
+  {
+    "id": "08892b3c-5d74-4a57-ba09-307311738b2b",
+    "title": "Dureri de cap cu programarea",
+    "date": "2026-01-10T19:42",
+    "notes": "Azi mi-a luat toata ziua sa finalizez pagina asta sa mearga sa fie salvata in format json. Gson nu mergea asa ca a trebuit sa il fac manual......",
+    "routines": [
+      {
+        "name": "GYM",
+        "completed": false
+      },
+      {
+        "name": "Bible",
+        "completed": false
+      },
+      {
+        "name": "Book",
+        "completed": false
+      },
+      {
+        "name": "Coding",
+        "completed": false
+      },
+      {
+        "name": "Skincare",
+        "completed": false
+      },
+      {
+        "name": "Test",
+        "completed": true
+      }
+    ]
+  },
+  {
+    "id": "332c43ec-cc85-4b98-bc62-808bfe782b85",
+    "title": "Am reusit sa imi stric programul...",
+    "date": "2026-01-10T21:35",
+    "notes": "Era sa pierd tot proiectul... Noroc ca am salvat versiunea de ieri pe git. M-am bagat la creatie cu stilizare css... nu mai incerc nimic...... Mai bine lasal asa \"bland\" ca merge. Asta conteaza, si lasa logica manuala de salvare, ca merge si asta conteaza... chiar daca a fost o durere de implementat... ",
+    "routines": [
+      {
+        "name": "GYM",
+        "completed": false
+      },
+      {
+        "name": "Bible",
+        "completed": false
+      },
+      {
+        "name": "Book",
+        "completed": false
+      },
+      {
+        "name": "Coding",
+        "completed": true
+      },
+      {
+        "name": "Skincare",
+        "completed": false
+      },
+      {
+        "name": "Test",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "id": "074f997a-e988-4096-9c11-714c5bb0bd3b",
+    "title": "Hai ca pana la urma am adaugat si stilizare css",
+    "date": "2026-01-10T22:58",
+    "notes": "Nu a fost cine stie ce greu. De data asta nu am mai stricat tot proiectul si nu m-am mai aruncat sa fac eu mare spirifant de design. Am mers la sigur si am luat un template de tip Discord si l-am modificat dupa plac.",
+    "routines": [
+      {
+        "name": "GYM",
+        "completed": false
+      },
+      {
+        "name": "Bible",
+        "completed": false
+      },
+      {
+        "name": "Book",
+        "completed": false
+      },
+      {
+        "name": "Coding",
+        "completed": true
+      },
+      {
+        "name": "Skincare",
+        "completed": false
+      },
+      {
+        "name": "Test",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "id": "7aa8cab2-1e99-4ed6-9874-b8d87583f2c4",
+    "title": "Proiectul e gata",
+    "date": "2026-01-10T23:12",
+    "notes": "Am cam terminat aplicatia. Merge exact cum vreau si imi palce ca are tot felul de functionalitati. Poate ma urnesc sa mai adaug si nebuniile de functii pe care am incercat si am esuat amarnic.... Urmeaza sa il pun maine pe git si sa fac documentatia si am termiat tot.",
+    "routines": [
+      {
+        "name": "GYM",
+        "completed": false
+      },
+      {
+        "name": "Bible",
+        "completed": false
+      },
+      {
+        "name": "Book",
+        "completed": false
+      },
+      {
+        "name": "Coding",
+        "completed": true
+      },
+      {
+        "name": "Skincare",
+        "completed": false
+      },
+      {
+        "name": "Test",
+        "completed": false
+      }
+    ]
+  }
+]

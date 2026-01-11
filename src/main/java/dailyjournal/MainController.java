@@ -68,6 +68,7 @@ public class MainController {
                     
                     HBox topRow = new HBox(10);
                     Label titleLabel = new Label(entry.getTitle());
+                    titleLabel.getStyleClass().add("entry-title");
                     titleLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 1.1em;");
                     
                     LocalDateTime dt;
@@ -77,7 +78,7 @@ public class MainController {
                         dt = LocalDateTime.now();
                     }
                     Label timeLabel = new Label("(" + dt.format(DateTimeFormatter.ofPattern("HH:mm")) + ")");
-                    timeLabel.setStyle("-fx-text-fill: gray;");
+                    timeLabel.getStyleClass().add("entry-time");
                     
                     Button editBtn = new Button("Edit");
                     editBtn.setOnAction(e -> editEntry(entry));
@@ -96,13 +97,15 @@ public class MainController {
                     
                     Label infoLabel = new Label(dt.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) + 
                                                " | Tasks: " + entry.getCompletedTasksCount() + "/" + entry.getRoutines().size());
+                    infoLabel.getStyleClass().add("entry-info");
                     infoLabel.setStyle("-fx-font-size: 0.8em;");
                     
                     String notes = entry.getNotes() != null ? entry.getNotes() : "";
                     String firstLineNotes = notes.split("\n")[0];
                     if (firstLineNotes.length() > 100) firstLineNotes = firstLineNotes.substring(0, 97) + "...";
                     Label notesLabel = new Label(firstLineNotes);
-                    notesLabel.setStyle("-fx-font-size: 0.7em; -fx-text-fill: gray;");
+                    notesLabel.getStyleClass().add("entry-notes");
+                    notesLabel.setStyle("-fx-font-size: 0.7em;");
                     
                     container.getChildren().addAll(topRow, infoLabel, notesLabel);
                     setGraphic(container);
